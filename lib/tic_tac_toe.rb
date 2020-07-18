@@ -1,6 +1,7 @@
 
 
   WIN_COMBINATIONS = [ 
+    
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -9,6 +10,7 @@
     [2, 5, 8],
     [0, 4, 8],
     [2, 4, 6]
+    
     ]
 
   def initialize
@@ -34,32 +36,44 @@
 
 
   def input_to_index(input)
+    
     index = input.to_i - 1
+    
   end
 
 
   def move(index, token = "X")
+    
     @board[index] = token
+    
   end
 
 
   def position_taken?(index)
+    
     @board[index] == "X" || @board[index] == "O" ? true : false
+    
   end
 
 
   def valid_move?(index)
+    
     index.between?(0, 8) && !position_taken?(index) ? true : false
+    
   end
   
 
   def turn_count
+    
     @board.count {|i| i == "X" || i == "O"}
+    
   end
 
 
   def current_player
+    
     turn_count % 2 == 0 ? "X" : "O"
+    
   end
   
 
